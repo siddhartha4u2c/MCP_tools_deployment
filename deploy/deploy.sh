@@ -99,5 +99,5 @@ PUBLIC_IP=$(aws ec2 describe-network-interfaces --network-interface-ids $ENI_ID 
 echo
 echo "Deployed. Health check:  curl http://$PUBLIC_IP:8000/health"
 echo "Run the client:"
-echo "  export MCP_API_KEY=\$(aws ssm get-parameter --name $PARAM_NAME --with-decryption --query Parameter.Value --output text)"
+echo "  export MCP_API_KEY=\$(MSYS_NO_PATHCONV=1 aws ssm get-parameter --name $PARAM_NAME --with-decryption --query Parameter.Value --output text)"
 echo "  python client.py http://$PUBLIC_IP:8000/mcp"
