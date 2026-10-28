@@ -102,7 +102,7 @@ client.py ── HTTP :8000 ──> ECS Fargate task (your container, public IP)
 4. At the end it prints the public IP. Test it:
    ```bash
    curl http://<IP>:8000/health
-   export MCP_API_KEY=$(aws ssm get-parameter --name /mcp-demo/api-key --with-decryption --query Parameter.Value --output text)
+   export MCP_API_KEY=$(MSYS_NO_PATHCONV=1 aws ssm get-parameter --name /mcp-demo/api-key --with-decryption --query Parameter.Value --output text)
    python client.py http://<IP>:8000/mcp
    ```
 5. Without the key you'll get `401 unauthorized`, which shows the protection is working.
