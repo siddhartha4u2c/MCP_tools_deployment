@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+client.py
+README.md
+deploy/
